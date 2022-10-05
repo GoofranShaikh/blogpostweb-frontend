@@ -1,0 +1,26 @@
+<div class="container">
+    
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <form [formGroup]="loginForm">
+            <mat-form-field>
+              <mat-label>
+                User Name / Email
+              </mat-label>
+              <input matInput type="text" formControlName="username">  
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>
+                  Password
+                </mat-label>
+                <input matInput type="password" formControlName="password">  
+              </mat-form-field>
+            
+            </form>
+        
+            <button mat-stroked-button (click)="submit()" > Login</button>
+            <button mat-stroked-button (click)="getWelcome()" > welcome</button>
+        </div>
+      </div>
+</div>
