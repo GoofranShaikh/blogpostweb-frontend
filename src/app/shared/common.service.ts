@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from '../login/login.component';
 
@@ -19,8 +20,9 @@ export class CommonService {
   }
 
   getAccessfromRefresToken(){
+    let userDetails=this.getUserDetails()
     const payload={
-      email:localStorage.getItem('email'),
+      email:userDetails.user.email,
       refreshToken:this.getRefreshToken()
     }
     return this.http.post(`${environment.baseUrl}/refresh`,payload)
@@ -31,5 +33,11 @@ export class CommonService {
   }
   getRefreshToken() {
     return localStorage.getItem('refreshToken');
+}
+getMyBlogs(userid):Observable<any>{
+  return this.http.post(`${environment.baseUrl}/blog-page/renderBlog`,userid)
+}
+getUserDetails(){
+  return JSON.parse(localStorage.getItem('userdetails'))
 }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonService } from '../shared/common.service';
 import { Login } from '../shared/models/model';
 
@@ -11,7 +12,7 @@ import { Login } from '../shared/models/model';
 export class LoginComponent implements OnInit {
   loginForm: any;
 
-  constructor(private fb:FormBuilder,private commonService: CommonService) { }
+  constructor(private fb:FormBuilder,private commonService: CommonService,private router:Router) { }
 
   ngOnInit() {
     this.initForm()
@@ -42,8 +43,9 @@ this.loginForm=this.fb.group({
   }
 
   storeUserDetails(response){
-    localStorage.setItem('email',response.user.email)
+    localStorage.setItem('userdetails',JSON.stringify(response))
     localStorage.setItem('accessToken',response.accessToken)
     localStorage.setItem('refreshToken',response.refreshToken)
+    this.router.navigate(['/blogs/fetchblogs'])
   }
 }

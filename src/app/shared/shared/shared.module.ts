@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InterceptorService } from '../interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent],
   imports: [
     CommonModule,
   ],
@@ -19,7 +20,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 		},
   ],
   exports:[
-    InterceptorService
+    InterceptorService,
+    NavbarComponent
   ]
 })
 export class SharedModule { }

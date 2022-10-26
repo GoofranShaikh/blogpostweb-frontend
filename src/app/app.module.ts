@@ -6,15 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InterceptorService } from './shared/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SharedModule } from './shared/shared/shared.module';
+import { NavbarComponent } from './shared/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     InterceptorService,
