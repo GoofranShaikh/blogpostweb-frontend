@@ -1,0 +1,6 @@
+<div class="container card mb-2" *ngFor="let item of blogDetails[0].userblogsmapping">
+    <div class="card-body" (click)="openBlog(item)">
+      <h5 class="card-title">{{item?.title}}</h5>
+      <p class="card-text">{{item?.description}}</p>
+    </div>
+  </div>
